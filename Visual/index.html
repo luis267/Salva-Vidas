@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salva Vidas Visual</title>
+    <style>
+        /* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.chat-container {
+    display: flex;
+    height: 100vh;
+    border: 1px solid #ccc;
+}
+
+.chat-sidebar {
+    flex: 1;
+    background-color: #fff;
+    border-right: 1px solid #ccc;
+    /* Estilo para lista de contatos ou outros elementos na barra lateral */
+}
+
+.chat-window {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+#send-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-sidebar">
+            <!-- Espaço para lista de contatos ou outros elementos -->
+        </div>
+        <div class="chat-window">
+            <!-- Espaço para exibir as mensagens do chat bot -->
+            <div class="chat-messages" id="chat-messages">
+                <!-- Mensagens do chat serão inseridas aqui via JavaScript -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Digite uma mensagem...">
+                <button id="send-button">Enviar</button>
+            </div>
+        </div>
+    </div>
+    <script>
+          
+            // script.js
+
+document.addEventListener('DOMContentLoaded', function () {
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+
+    sendButton.addEventListener('click', function () {
+        const userMessage = userInput.value;
+
+        // Simplesmente adiciona a mensagem do usuário à janela de chat
+        chatMessages.innerHTML += `<p><strong>Você:</strong> ${userMessage}</p>`;
+
+        // Você pode adicionar a lógica do chat bot aqui e exibir suas respostas no chatMessages
+        // Por enquanto, é apenas um exemplo simples
+        chatMessages.innerHTML += `<p><strong>Chat Bot:</strong> Olá! Como posso ajudar?</p>`;
+
+        // Limpa a caixa de entrada do usuário
+        userInput.value = '';
+    });
+});
+
+
+    </script>
+</body>
+</html>
